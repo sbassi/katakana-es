@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Katakana en Español</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <span>Katakana</span>
+
+    <button id="home-btn" type="button" class="btn btn-default">
+      <span class="glyphicon glyphicon-home"></span> 
+    </button>
+	<div id="primera">
+
+<button id="ant-btn" type="button" class="btn btn-default btn-lg disabled">
+  <span class="glyphicon glyphicon-chevron-left"></span> 
+</button>
+
+<span id="imgcont">
+  <img id="maincard" src="imgs/a.png" width="200px" alt="a" class="img-rounded">
+</span>
+<span id="next">
+<button id="next-btn" type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-chevron-right"></span> 
+</button>
+</span>
+	</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+<script>
+
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
+    var reg_order = ['a', 'i', 'u', 'e', 'o', 
+                     'ka', 'ki', 'ku', 'ke', 'ko',
+                     'sa', 'shi', 'su', 'se', 'so',
+                     'ta', 'chi', 'tsu', 'te', 'to', 
+                     'na', 'mi', 'nu', 'ne', 'no',
+                     'ha', 'hi', 'fu', 'he', 'ho',
+                     'ma', 'mi', 'mu', 'me', 'mo',
+                     'ya', 'yu', 'yo',
+                     'ra', 'ri', 'ru', 're', 'ro', 
+                     'wa', 
+                     'n'];
+
+  if (window.location.search.substring(1)=="azar"){
+    // Orden al azar
+  reg_order = shuffleArray(reg_order);
+  $("#maincard").attr("src","imgs/"+reg_order[0]+".png");
+  $("#maincard").attr("alt",reg_order[0]);
+  }
+
+
+var up_limit = reg_order.length;
+// al apretar, desaparecen los clases opciones y aparecen mainkana
+var indice = 0;
+
+
+function fnNext() {
+      if ($("#ant-btn").hasClass("disabled")){
+         $("#ant-btn").removeClass("disabled");
+      }
+  if ((indice+1)<up_limit){
+    indice++;
+  }
+  else
+  {
+    indice = 0;
+    $("#ant-btn").addClass("disabled");
+  }
+  $("#maincard").attr("src","imgs/"+reg_order[indice]+".png");
+  $("#maincard").attr("alt",reg_order[indice]);
+}
+
+function fnAnt() {
+    indice--;
+    $("#maincard").attr("src","imgs/"+reg_order[indice]+".png");
+    if (indice==0){
+    $("#ant-btn").addClass("disabled");
+  }
+}
+
+function fnHome() {
+  self.location="index.html";
+
+}
+
+
+$( "#home-btn" ).click(fnHome);
+$( "#next-btn" ).click(fnNext);
+$( "#ant-btn" ).click(fnAnt);
+
+$(document).keydown(function(e){
+    if (e.keyCode == 39) { 
+      if ($("#ant-btn").hasClass("disabled")){
+          $("#ant-btn").removeClass("disabled");
+          }
+    if ((indice+1)<up_limit){
+      indice++;
+    }
+    else
+    {
+      indice = 0;
+      $("#ant-btn").addClass("disabled");
+    } 
+      $("#maincard").attr("src","imgs/"+reg_order[indice]+".png");
+      $("#maincard").attr("alt",reg_order[indice]);
+      return false;
+    }
+  else (e.keyCode == 37)  
+    {
+
+  if (indice==0){
+    return false;
+    }
+
+    indice--;
+    $("#maincard").attr("src","imgs/"+reg_order[indice]+".png");
+    if (indice==0){
+    $("#ant-btn").addClass("disabled");
+ 
+       return false;
+    }
+
+  }
+
+});
+
+
+var x=1;
+$( "#imgcont" ).click(function() {
+// poner letra
+x++;
+
+   
+});
+
+
+</script>
+
+  </body>
+</html>
