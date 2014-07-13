@@ -12,8 +12,22 @@
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
+
+<style media="screen" type="text/css">
+#myModalLabel {
+
+  font-size:400%;
+  color: #000000;
+  text-align: center;
+  background-color: #CCFF99;
+
+}
+</style>
+
   </head>
   <body>
+
+
     <h1>Katakana en español
 
       <button id="home-btn" type="button" class="btn btn-default">
@@ -29,7 +43,7 @@
 </button>
 
 <span id="imgcont">
-  <img id="maincard" src="imgs/a.png" width="200px" alt="a" class="img-rounded">
+  <img id="maincard" src="imgs/a.png" width="200px" alt="a" class="img-rounded" data-toggle="modal" data-target="#myModal">
 </span>
 <span id="next">
 <button id="next-btn" type="button" class="btn btn-default btn-lg">
@@ -37,6 +51,19 @@
 </button>
 </span>
 	</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+        <h4 class="modal-title" id="myModalLabel">a</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-2.0.3.min.js"></script>
@@ -73,6 +100,7 @@ function shuffleArray(array) {
   reg_order = shuffleArray(reg_order);
   $("#maincard").attr("src","imgs/"+reg_order[0]+".png");
   $("#maincard").attr("alt",reg_order[0]);
+  $("#myModalLabel").text(reg_order[0]);
   }
 
 
@@ -95,11 +123,13 @@ function fnNext() {
   }
   $("#maincard").attr("src","imgs/"+reg_order[indice]+".png");
   $("#maincard").attr("alt",reg_order[indice]);
+  $("#myModalLabel").text(reg_order[indice]);
 }
 
 function fnAnt() {
     indice--;
     $("#maincard").attr("src","imgs/"+reg_order[indice]+".png");
+    $("#myModalLabel").text(reg_order[indice]);
     if (indice==0){
     $("#ant-btn").addClass("disabled");
   }
@@ -130,6 +160,8 @@ $(document).keydown(function(e){
     } 
       $("#maincard").attr("src","imgs/"+reg_order[indice]+".png");
       $("#maincard").attr("alt",reg_order[indice]);
+      $("#myModalLabel").text(reg_order[indice]);
+
       return false;
     }
   else (e.keyCode == 37)  
@@ -141,6 +173,8 @@ $(document).keydown(function(e){
 
     indice--;
     $("#maincard").attr("src","imgs/"+reg_order[indice]+".png");
+    $("#maincard").attr("alt",reg_order[indice]);
+    $("#myModalLabel").text(reg_order[indice]);
     if (indice==0){
     $("#ant-btn").addClass("disabled");
  
@@ -159,6 +193,7 @@ x++;
 
    
 });
+
 
 
 </script>

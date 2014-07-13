@@ -14,7 +14,13 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Katakana en español</h1>
+    <h1>Katakana en español
+
+    <button id="question-btn" type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-question-sign"></span> 
+      </button>
+
+    </h1>
 	<div id="primera">
         <p><br/></p>
 		<p>
@@ -35,6 +41,14 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 
+<script>
+function fnHelp() {
+  self.location="ayuda.html";
+
+}
+
+$( "#question-btn" ).click(fnHelp);
+</script>
 
   </body>
 </html>

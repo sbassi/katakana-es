@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Katakana en Español</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>Katakana en español
+
+      <button id="home-btn" type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-home"></span> 
+      </button>
+
+    </h1>
+	<div id="primera">
+        <p><br/></p>
+
+<p>
+        El Katakana es un silabario japonés usado normalmente para representar palabras de origen extranjero. Por ejemplo la palabra computadora en japonés se pronuncia konpyūtā y se escribe con katakana: コンピューター
+</p>
+  <p>
+      Esta aplicación tiene las 45 silabas que componen el katakana a modo de "cartas" o "fichas". Cada ficha tiene la sílaba junto con un dibujo que hace referencia a como se pronuncia. La diferencia entre estas fichas y otras similares es que la relación fonética entre el kana y el dibujo es en español. 
+  </p>
+  <p>
+      Por ejemplo el kana para "me" (メ) es representado por una medialuna:<br/>
+
+        <img id="ejme" src="imgs/me.png" alt="me" class="img-rounded">
+  </p>
+  <p>
+      Hay que tener en cuenta que la relación es solo de pronunciación en español, y no hay que hacer asociaciones de significado entre el dibujo y el kana.
+  </p>
+  <p>
+      Para usar el programa, desde el menú de inicio seleccione "Ordenado" para ver las fichas ordenadas según el silabario japonés o seleccione "Al azar" para ver las fichas sin ningún orden. Al tocar una ficha podrá ver un cartel con su pronunciación. Toque en la cruz superior derecha o fuera del cartel para que desaparezca.
+  </p>
+
+	</div>
+<div class="well">
+  <p>Basado en las cartas de <a href="http://www.spn.kyoren.com.ar/">Kyoren Argentina</a></p>
+  <p>Software Libre bajo licencia <a href="http://opensource.org/licenses/MIT">MIT</a>. Código fuente disponible en <a href="https://github.com/sbassi/katakana-es">Github</a></p>
+  <p>Autor: Sebastián Bassi y Maximo Bassi</p>
+</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+<script>
+function fnHome() {
+  self.location="index.html";
+
+}
+
+$( "#home-btn" ).click(fnHome);
+</script>
+
+
+  </body>
+</html>
