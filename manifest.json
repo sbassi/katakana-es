@@ -1,0 +1,12 @@
+{
+  "name": "Katakana-es",
+  "description": "Katanana en español",
+  "version": "0.3",
+  "manifest_version": 2,
+  "app": {
+    "launch": {
+      "local_path": "index.html"
+    }
+  },
+  "icons": { "16": "logo16.png", "128": "logo128.png" }
+}
